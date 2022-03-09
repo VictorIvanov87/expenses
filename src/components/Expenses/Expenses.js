@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import ExpenseItem from './ExpenseItem';
 import Card from '../UI/Card';
 import './Expenses.css';
+import ExpensesFilter from './ExpensesFilter';
 
 const Expenses = () => {
+  const [currentFilter, setCurrentFilter] = useState(null);
   const expenses = [
     {
       id: 'e1',
@@ -28,11 +30,14 @@ const Expenses = () => {
   ];
 
   return (
-    <Card class="expenses">
-      {expenses.map((e) => {
-        return <ExpenseItem key={e.id} title={e.title} amount={e.amount} date={e.date} />;
-      })}
-    </Card>
+    <>
+      <ExpensesFilter onFilterChange={setCurrentFilter}></ExpensesFilter>
+      <Card class="expenses">
+        {expenses.map((e) => {
+          return <ExpenseItem key={e.id} title={e.title} amount={e.amount} date={e.date} />;
+        })}
+      </Card>
+    </>
   );
 };
 

@@ -1,8 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
-@import './components/Expenses/ExpenseDate.css';
-@import './components/Expenses/ExpenseItem.css';
-@import './components/Expenses/Expenses.css';
-
 * {
   box-sizing: border-box;
 }
