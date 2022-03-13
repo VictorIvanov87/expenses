@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-import ExpenseItem from './ExpenseItem';
-import Card from '../UI/Card';
 import './Expenses.css';
 import ExpensesFilter from './ExpensesFilter';
 import ExpensesList from './ExpensesList';
+import NewExpense from '../NewExpense/NewExpense';
 
 const INITIAL_EXPENSES = [
   {
@@ -30,9 +29,14 @@ const INITIAL_EXPENSES = [
 
 const Expenses = () => {
   const [currentFilter, setCurrentFilter] = useState(2022);
+  const addExpenseHandler = (expense) => {
+    console.log('In App.js');
+    console.log(expense);
+  };
 
   return (
     <>
+      <NewExpense onAddExpense={addExpenseHandler} />
       <ExpensesFilter onFilterChange={setCurrentFilter}></ExpensesFilter>
       <ExpensesList expenses={INITIAL_EXPENSES} year={currentFilter}></ExpensesList>
     </>

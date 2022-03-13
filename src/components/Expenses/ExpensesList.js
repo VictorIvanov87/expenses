@@ -1,5 +1,4 @@
 import ExpenseItem from './ExpenseItem';
-import Card from './../UI/Card';
 import './ExpensesList.css';
 
 const ExpensesList = ({ expenses, year }) => {
