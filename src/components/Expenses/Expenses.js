@@ -4,6 +4,7 @@ import './Expenses.css';
 import ExpensesFilter from './ExpensesFilter';
 import ExpensesList from './ExpensesList';
 import NewExpense from '../NewExpense/NewExpense';
+import ExpnsesChart from './ExpnsesChart';
 
 const INITIAL_EXPENSES = [
   {
@@ -28,7 +29,7 @@ const INITIAL_EXPENSES = [
 ];
 
 const Expenses = () => {
-  const [currentFilter, setCurrentFilter] = useState(2022);
+  const [currentFilter, setCurrentFilter] = useState(2021);
   const addExpenseHandler = (expense) => {
     console.log('In App.js');
     console.log(expense);
@@ -37,8 +38,9 @@ const Expenses = () => {
   return (
     <>
       <NewExpense onAddExpense={addExpenseHandler} />
-      <ExpensesFilter onFilterChange={setCurrentFilter}></ExpensesFilter>
-      <ExpensesList expenses={INITIAL_EXPENSES} year={currentFilter}></ExpensesList>
+      <ExpensesFilter onFilterChange={setCurrentFilter} />
+      <ExpnsesChart expenses={INITIAL_EXPENSES} />
+      <ExpensesList expenses={INITIAL_EXPENSES} year={currentFilter} />
     </>
   );
 };
